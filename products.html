@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Nutrics – Elevating Lives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
+  <!-- Language System -->
+<script src="languages.js"></script> 
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #244e9b;
+      --primary-light: #a69aed;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --gold-dark: #a8893a;
+      --cream: #fdf8f0;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #6b6b6b;
+      --shadow: 0 20px 60px rgba(0,0,0,0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(2, 34, 113, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+      padding: 10px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-brand a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    .brand-tag {
+      display: block;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.nav-active {
+      color: var(--gold);
+    }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .btn-nav {
+      background: var(--gold);
+      color: var(--primary) !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition);
+    }
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--primary);
+      padding: 100px 0 60px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #0D2B6B 0%, #1A3FA0 50%, #0D2B6B 100%);
+      pointer-events: none;
+    }
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero-accent {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--gold-light);
+      font-weight: 300;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--primary);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4);
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 12px 36px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 15px;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.1);
+    }
+
+    /* Hero Image */
+    .hero-image {
+      flex: 1;
+      max-width: 480px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      perspective: 1000px;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.15), rgba(26, 58, 43, 0.2));
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      border-radius: 24px;
+    }
+    .hero-image:hover {
+      box-shadow: 0 0 40px rgba(201, 168, 76, 0.25), 0 30px 80px rgba(0,0,0,0.4);
+    }
+    .hero-image:hover img {
+      transform: scale(1.06) rotateY(-3deg) rotateX(2deg);
+    }
+    .hero-image:hover::after {
+      opacity: 1;
+    }
+
+    /* Hero Stats */
+    .hero-stats-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding: 40px 24px 20px;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-stat {
+      text-align: center;
+      padding: 16px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(4px);
+      min-width: 140px;
+    }
+    .stat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== PRODUCTS / FOOD TECHNOLOGIES ===== */
+    .products-section {
+      padding: 80px 0 60px;
+      background: var(--cream);
+    }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .tech-card {
+      background: var(--white);
+      padding: 30px 28px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      text-align: center;
+    }
+    .tech-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+      border-color: var(--gold);
+    }
+    .tech-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--cream);
+    }
+    .tech-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .tech-card:hover .tech-image img {
+      transform: scale(1.05);
+    }
+    .tech-icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .tech-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .tech-card .tech-origin {
+      font-size: 12px;
+      color: var(--gold-dark);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .tech-card p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ===== INGREDIENTS SECTION ===== */
+    .ingredients-section {
+      padding: 60px 0 80px;
+      background: var(--white);
+    }
+    .filter-bar {
+      background: var(--cream);
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+    }
+    .filter-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .filter-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 6px 18px;
+      border-radius: 50px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--primary);
+    }
+
+    .ing-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .ing-card {
+      background: var(--cream);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .ing-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ing-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .ing-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .ing-emoji {
+      font-size: 36px;
+      width: 52px;
+      height: 52px;
+      background: var(--white);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .ing-card-title-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--primary);
+    }
+    .ing-latin {
+      font-size: 13px;
+      color: var(--gray);
+      font-style: italic;
+    }
+    .ing-number {
+      font-size: 12px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .ing-tags-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .ing-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-weight: 600;
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--gold-dark);
+    }
+    .ing-tag.immunity { background: rgba(76, 175, 80, 0.15); color: #2e7d32; }
+    .ing-tag.skin { background: rgba(233, 30, 99, 0.1); color: #ad1457; }
+    .ing-tag.joint { background: rgba(33, 150, 243, 0.1); color: #0d47a1; }
+    .ing-tag.sugar { background: rgba(255, 152, 0, 0.15); color: #e65100; }
+    .ing-tag.antioxidant { background: rgba(156, 39, 176, 0.1); color: #6a1b9a; }
+    .ing-tag.antiinflammatory { background: rgba(244, 67, 54, 0.1); color: #b71c1c; }
+    .ing-body {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .ing-benefit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+    }
+    .ibl-item {
+      font-size: 13px;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ibl-item span {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    /* ===== DISCLAIMER ===== */
+    .disclaimer-bar {
+      background: linear-gradient(135deg, #0D2B6B 0%, #1A3FA0 50%, #0D2B6B 100%);
+      padding: 20px 0;
+    }
+    .disclaimer-bar p {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .disclaimer-bar strong {
+      color: var(--gold-light);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: linear-gradient(135deg, #0D2B6B 0%, #1A3FA0 50%, #0D2B6B 100%);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer a {
+      color: var(--gold-light);
+      transition: var(--transition);
+    }
+    .footer a:hover {
+      color: var(--gold);
+    }
+    .footer-global {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 52px; }
+      .ing-detail-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        padding: 24px;
+        border-radius: 16px;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+        gap: 30px;
+      }
+      .hero-content { max-width: 100%; }
+      .hero-desc { max-width: 100%; }
+      .hero-title { font-size: 40px; }
+      .hero-cta-row { justify-content: center; }
+      .hero-image { max-width: 100%; }
+      .hero-stats-wrap { gap: 20px; }
+      .hero-stat { min-width: 100px; padding: 12px 16px; }
+      .stat-num { font-size: 28px; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .ing-benefit-list { grid-template-columns: 1fr; }
+      .section-title { font-size: 32px; }
+      .filter-bar .container { flex-direction: column; align-items: flex-start; }
+      .tech-image { height: 160px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 32px; }
+      .hero-sub { font-size: 16px; letter-spacing: 3px; }
+      .btn-primary, .btn-outline { padding: 10px 24px; font-size: 14px; }
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      background: rgba(26, 58, 43, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-brand a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon { font-size: 28px; color: var(--gold); }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    .brand-tag {
+      display: block;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.nav-active { color: var(--gold); }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .btn-nav {
+      background: var(--gold);
+      color: var(--primary) !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition);
+    }
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 140px 0 60px;
+      background: var(--primary);
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .page-hero .hero-accent {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      padding: 60px 0 80px;
+      background: var(--cream);
+    }
+    .products-grid .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+      border-color: var(--gold);
+    }
+    .product-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    .product-card .content {
+      padding: 24px 28px 30px;
+    }
+    .product-card .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .product-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .product-card p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .product-card .learn-more {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--gold-dark);
+      font-weight: 600;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    .product-card .learn-more:hover {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer a { color: var(--gold-light); transition: var(--transition); }
+    .footer a:hover { color: var(--gold); }
+
+    @media (max-width: 1024px) {
+      .products-grid .container { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        padding: 24px;
+        border-radius: 16px;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .products-grid .container { grid-template-columns: 1fr; }
+      .page-hero h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+ <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html">
+          <span class="brand-icon">∞</span>
+          <div>
+            <span class="brand-name">LIFE NUTRICS</span>
+            <span class="brand-tag">Elevating Lives</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="nav-active">Products</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our <span class="hero-accent">Products</span></h1>
+      <p>Discover Nutrika — a revolutionary functional food supplement formulated with 18 active ingredients and advanced food technologies from France and Japan.</p>
+    </div>
+  </section>
+
+
+  <!-- PRODUCTS GRID -->
+  <section class="products-grid">
+    <div class="container">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop" alt="French Bio-Fermentation" />
+        <div class="content">
+          <span class="tag">🇫🇷 France</span>
+          <h3>French Bio-Fermentation</h3>
+          <p>A proprietary fermentation process that enhances nutrient bioavailability by up to 300%, breaking down complex compounds into easily absorbable forms.</p>
+          <a href="#" class="learn-more">Learn More →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=600&h=400&fit=crop" alt="Japanese Nano-Emulsion" />
+        <div class="content">
+          <span class="tag">🇯🇵 Japan</span>
+          <h3>Japanese Nano-Emulsion</h3>
+          <p>Particle reduction technology creating nano-sized droplets for superior absorption at the cellular level, increasing potency and reducing waste.</p>
+          <a href="#" class="learn-more">Learn More →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&h=400&fit=crop" alt="Cell Cleanse Complex" />
+        <div class="content">
+          <span class="tag">Chinese Food Technology</span>
+          <h3>Cell Cleanse Complex</h3>
+          <p>A proprietary blend of bio-active compounds designed to support cellular autophagy — the body's natural process of clearing damaged cells.</p>
+          <a href="#" class="learn-more">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== INGREDIENTS ===== -->
+  <section class="ingredients-section" id="ingredients">
+    <div class="container">
+      <p class="section-label">Nutrika Formula</p>
+      <h2 class="section-title">18 Active <span class="hero-accent">Ingredients</span></h2>
+      <p class="section-sub">Every sachet of Nutrika is a precise fusion of nature and science — ingredients selected from the world's most potent botanical and nutritional sources.</p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="container">
+      <p class="filter-label">Filter by benefit:</p>
+      <div class="filter-tags">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="immunity">Immunity</button>
+        <button class="filter-btn" data-filter="skin">Skin &amp; Beauty</button>
+        <button class="filter-btn" data-filter="joint">Joint Health</button>
+        <button class="filter-btn" data-filter="sugar">Sugar Control</button>
+        <button class="filter-btn" data-filter="antioxidant">Anti-Oxidant</button>
+        <button class="filter-btn" data-filter="antiinflammatory">Anti-inflammatory</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ingredients Grid -->
+  <section style="padding: 20px 0 80px; background: var(--white);">
+    <div class="container">
+      <div class="ing-detail-grid" id="ingredientsGrid">
+
+        <!-- Ingredient 1 -->
+        <div class="ing-card" data-tags="immunity skin">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">01</span>
+              <h3>Vitamin C</h3>
+              <p class="ing-latin">Ascorbic Acid</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Immune Booster</span>
+            <span class="ing-tag skin">Skin Glow</span>
+          </div>
+          <p class="ing-body">Vitamin C is one of the most powerful and well-researched antioxidants in nutritional science. In Nutrika, it serves a dual role — fortifying the immune system and accelerating the skin's natural renewal processes. It stimulates the production of white blood cells, the body's primary defense against infections and disease. As a cofactor in collagen synthesis, Vitamin C is essential for maintaining skin firmness, reducing wrinkles, and promoting an even, radiant skin tone.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Boosts white blood cell production</div>
+            <div class="ibl-item"><span>✦</span> Supports collagen synthesis for youthful skin</div>
+            <div class="ibl-item"><span>✦</span> Neutralises harmful free radicals</div>
+            <div class="ibl-item"><span>✦</span> Accelerates wound healing</div>
+            <div class="ibl-item"><span>✦</span> Enhances iron absorption</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 2 -->
+        <div class="ing-card" data-tags="joint">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">02</span>
+              <h3>Mangoselect</h3>
+              <p class="ing-latin">Mangifera indica Extract</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag joint">Joint Health Support</span>
+          </div>
+          <p class="ing-body">Mangoselect is a standardised extract from the mango tree, renowned for its exceptional concentration of mangiferin — a natural xanthone with potent anti-inflammatory and analgesic properties. It inhibits inflammatory enzymes (COX-2) responsible for joint pain, swelling, and stiffness. Clinical studies show it reduces biomarkers of cartilage breakdown, preserving joint function over time.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Reduces joint inflammation and pain</div>
+            <div class="ibl-item"><span>✦</span> Inhibits cartilage breakdown enzymes</div>
+            <div class="ibl-item"><span>✦</span> Improves joint mobility and flexibility</div>
+            <div class="ibl-item"><span>✦</span> Antioxidant protection at joint tissue level</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 3 -->
+        <div class="ing-card" data-tags="immunity antiinflammatory">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">03</span>
+              <h3>Mulberry</h3>
+              <p class="ing-latin">Morus alba</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Immune Booster</span>
+            <span class="ing-tag antiinflammatory">Anti-Bacteria</span>
+          </div>
+          <p class="ing-body">Used for centuries in traditional East Asian medicine, mulberry extract is rich in anthocyanins, resveratrol, and flavonoids that provide broad-spectrum immune support with antibacterial action against a range of pathogens. Its natural compounds disrupt bacterial cell membranes and also support liver health, improve blood quality, and help regulate blood sugar levels.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Antibacterial action against pathogens</div>
+            <div class="ibl-item"><span>✦</span> Strengthens the immune response</div>
+            <div class="ibl-item"><span>✦</span> Supports liver detoxification</div>
+            <div class="ibl-item"><span>✦</span> Helps regulate blood sugar</div>
+            <div class="ibl-item"><span>✦</span> Rich in anthocyanins and flavonoids</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 4 -->
+        <div class="ing-card" data-tags="immunity antiinflammatory antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">04</span>
+              <h3>Blackcurrant</h3>
+              <p class="ing-latin">Ribes nigrum</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Immune Booster</span>
+            <span class="ing-tag antiinflammatory">Anti-inflammatory</span>
+          </div>
+          <p class="ing-body">One of the richest plant sources of Vitamin C and anthocyanins, blackcurrant is clinically recognised for immune modulation and inflammation control. Its anthocyanins inhibit pro-inflammatory cytokines responsible for chronic inflammation that underpins arthritis, cardiovascular disease, and autoimmune disorders.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Inhibits inflammatory cytokines</div>
+            <div class="ibl-item"><span>✦</span> High ORAC antioxidant value</div>
+            <div class="ibl-item"><span>✦</span> Supports healthy circulation</div>
+            <div class="ibl-item"><span>✦</span> Protects eye health</div>
+            <div class="ibl-item"><span>✦</span> Boosts immune resilience</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 5 -->
+        <div class="ing-card" data-tags="skin">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">05</span>
+              <h3>Marine Collagen</h3>
+              <p class="ing-latin">Hydrolysed Fish Collagen Peptides</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag skin">Skin Elasticity</span>
+            <span class="ing-tag skin">Skin Moisture</span>
+          </div>
+          <p class="ing-body">Marine collagen is sourced from deep-sea fish and is the most bioavailable form of collagen — absorbed up to 1.5 times more efficiently than bovine collagen. As natural collagen production declines with age, marine collagen peptides replenish this vital structural protein, restoring firmness and reducing fine lines.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Highest bioavailability of all collagen types</div>
+            <div class="ibl-item"><span>✦</span> Restores skin firmness and elasticity</div>
+            <div class="ibl-item"><span>✦</span> Reduces fine lines and wrinkles</div>
+            <div class="ibl-item"><span>✦</span> Improves skin hydration and moisture lock</div>
+            <div class="ibl-item"><span>✦</span> Supports joint and bone integrity</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 6 -->
+        <div class="ing-card" data-tags="antioxidant skin">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">06</span>
+              <h3>Grape Seed</h3>
+              <p class="ing-latin">Vitis vinifera — OPC Extract</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag skin">Brighten Skin</span>
+            <span class="ing-tag antioxidant">Anti-Oxidant</span>
+          </div>
+          <p class="ing-body">Grape seed extract contains oligomeric proanthocyanidins (OPCs) — 20x more potent than Vitamin E and 50x more potent than Vitamin C as antioxidants. In Nutrika, it inhibits melanin overproduction, leading to a brighter complexion, and protects collagen fibres from enzyme-driven breakdown.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> 50x more potent antioxidant than Vitamin C</div>
+            <div class="ibl-item"><span>✦</span> Inhibits melanin for brighter skin</div>
+            <div class="ibl-item"><span>✦</span> Strengthens capillary walls</div>
+            <div class="ibl-item"><span>✦</span> Protects existing collagen fibres</div>
+            <div class="ibl-item"><span>✦</span> Reduces dark spots and uneven tone</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 7 -->
+        <div class="ing-card" data-tags="skin antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">07</span>
+              <h3>Peach</h3>
+              <p class="ing-latin">Prunus persica Extract</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag skin">Skin Health</span>
+            <span class="ing-tag antioxidant">Anti-Oxidant</span>
+          </div>
+          <p class="ing-body">Peach extract is rich in beta-carotene, lutein, zeaxanthin, and Vitamin A. Beta-carotene converts to Vitamin A in the body, regulating skin cell turnover and revealing smoother, more refined skin. Its flavonoid compounds offer UV-protective properties at the cellular level.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Rich in beta-carotene and Vitamin A</div>
+            <div class="ibl-item"><span>✦</span> Regulates skin cell turnover</div>
+            <div class="ibl-item"><span>✦</span> Cellular-level UV oxidative protection</div>
+            <div class="ibl-item"><span>✦</span> Maintains skin hydration balance</div>
+            <div class="ibl-item"><span>✦</span> Supports healthy vision</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 8 -->
+        <div class="ing-card" data-tags="sugar antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">08</span>
+              <h3>Bitter Melon</h3>
+              <p class="ing-latin">Momordica charantia</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag sugar">Sugar Control</span>
+            <span class="ing-tag antioxidant">Anti-Cancer</span>
+          </div>
+          <p class="ing-body">Used in Ayurvedic and African traditional medicine for millennia to manage blood sugar, Bitter Melon's active compounds — charantin, vicine, and polypeptide-p — collectively mimic insulin's action, driving glucose into cells for energy rather than allowing it to accumulate in the bloodstream.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Insulin-mimicking action</div>
+            <div class="ibl-item"><span>✦</span> Lowers fasting blood glucose levels</div>
+            <div class="ibl-item"><span>✦</span> Supports Type 1 &amp; 2 diabetes management</div>
+            <div class="ibl-item"><span>✦</span> Anti-tumour properties in multiple cancer lines</div>
+            <div class="ibl-item"><span>✦</span> Improves cellular energy metabolism</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 9 -->
+        <div class="ing-card" data-tags="skin antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">09</span>
+              <h3>Sakura</h3>
+              <p class="ing-latin">Prunus serrulata — Cherry Blossom</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag skin">Skin Beauty</span>
+            <span class="ing-tag skin">Skin Anti-aging</span>
+          </div>
+          <p class="ing-body">One of Japan's most celebrated beauty ingredients, Sakura (Cherry Blossom) extract delivers powerful skin-brightening and anti-aging effects through its unique polyphenol profile. Clinically shown to activate gene expression linked to collagen production while inhibiting collagen-degrading enzymes.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Activates collagen production gene expression</div>
+            <div class="ibl-item"><span>✦</span> Inhibits collagen-degrading enzymes (MMPs)</div>
+            <div class="ibl-item"><span>✦</span> Brightens skin tone and reduces dullness</div>
+            <div class="ibl-item"><span>✦</span> Reduces appearance of fine lines</div>
+            <div class="ibl-item"><span>✦</span> Rooted in Japanese cosmeceutical tradition</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 10 -->
+        <div class="ing-card" data-tags="immunity antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">10</span>
+              <h3>Tiger Milk Mushroom</h3>
+              <p class="ing-latin">Lignosus rhinocerotis</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Liver &amp; Lung Function</span>
+            <span class="ing-tag antioxidant">Anti-Cancer</span>
+          </div>
+          <p class="ing-body">Southeast Asia's most prized medicinal mushroom, historically used by indigenous communities for respiratory ailments. Its extraordinary bioactive profile modulates immune activity, protects lung tissue from oxidative damage, and supports liver detoxification pathways.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Protects and heals lung tissue</div>
+            <div class="ibl-item"><span>✦</span> Supports liver detoxification pathways</div>
+            <div class="ibl-item"><span>✦</span> Beta-glucans modulate immune response</div>
+            <div class="ibl-item"><span>✦</span> Anti-tumour activity in lung &amp; breast cancer models</div>
+            <div class="ibl-item"><span>✦</span> Effective for asthma and chronic respiratory issues</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 11 -->
+        <div class="ing-card" data-tags="immunity sugar antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">11</span>
+              <h3>Moringa</h3>
+              <p class="ing-latin">Moringa oleifera — "Tree of Life"</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag sugar">Sugar Control</span>
+            <span class="ing-tag immunity">Immune Booster</span>
+          </div>
+          <p class="ing-body">Known as the "Miracle Tree," Moringa oleifera is one of the most nutrient-dense plants ever studied — containing over 90 types of nutrients, 46 antioxidants, all essential amino acids, and isothiocyanates that regulate blood sugar.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Contains 90+ nutrients and 46 antioxidants</div>
+            <div class="ibl-item"><span>✦</span> Enhances insulin sensitivity</div>
+            <div class="ibl-item"><span>✦</span> Slows carbohydrate absorption in the gut</div>
+            <div class="ibl-item"><span>✦</span> Anti-inflammatory (comparable to NSAIDs)</div>
+            <div class="ibl-item"><span>✦</span> Supports anaemia prevention (high iron)</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 12 -->
+        <div class="ing-card" data-tags="antioxidant skin">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">12</span>
+              <h3>Astaxanthin</h3>
+              <p class="ing-latin">Haematococcus pluvialis Microalgae</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag antioxidant">Anti-Oxidant</span>
+            <span class="ing-tag skin">Skin Whitening</span>
+          </div>
+          <p class="ing-body">The world's most powerful natural antioxidant — 6,000x stronger than Vitamin C, 800x stronger than CoQ10, and 550x stronger than Vitamin E. This carotenoid pigment provides full-spectrum antioxidant protection across all cell membrane layers.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> 6,000x stronger than Vitamin C</div>
+            <div class="ibl-item"><span>✦</span> Full-spectrum cellular membrane protection</div>
+            <div class="ibl-item"><span>✦</span> Reduces hyperpigmentation and age spots</div>
+            <div class="ibl-item"><span>✦</span> UV-damage protection at the cellular level</div>
+            <div class="ibl-item"><span>✦</span> Supports eye, brain, and cardiovascular health</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 13 -->
+        <div class="ing-card" data-tags="joint">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">13</span>
+              <h3>HMB</h3>
+              <p class="ing-latin">Beta-Hydroxy Beta-Methylbutyrate</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag joint">Joint Health</span>
+            <span class="ing-tag joint">Muscle Gain &amp; Recovery</span>
+          </div>
+          <p class="ing-body">A metabolite of the essential amino acid leucine, HMB is one of the most clinically validated ingredients for muscle preservation and joint support. It works by inhibiting the protein breakdown pathway and stimulating new muscle protein synthesis.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Inhibits muscle protein breakdown</div>
+            <div class="ibl-item"><span>✦</span> Stimulates new muscle synthesis (mTOR pathway)</div>
+            <div class="ibl-item"><span>✦</span> Reduces inflammatory markers in joints</div>
+            <div class="ibl-item"><span>✦</span> Accelerates post-exercise recovery</div>
+            <div class="ibl-item"><span>✦</span> Preserves lean muscle in aging</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 14 -->
+        <div class="ing-card" data-tags="sugar">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">14</span>
+              <h3>Erythritol</h3>
+              <p class="ing-latin">Natural Sugar Alcohol</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag sugar">Sugar Control</span>
+            <span class="ing-tag sugar">Gut Hormone-Satiety</span>
+          </div>
+          <p class="ing-body">A naturally occurring sugar alcohol found in fruits and fermented foods, erythritol serves a dual function in Nutrika — as a safe sweetener and metabolic health tool. With a glycaemic index of zero, it does not spike blood glucose or insulin.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Zero glycaemic index — safe for diabetics</div>
+            <div class="ibl-item"><span>✦</span> Does not spike blood glucose or insulin</div>
+            <div class="ibl-item"><span>✦</span> Stimulates gut satiety hormones (GLP-1, PYY)</div>
+            <div class="ibl-item"><span>✦</span> Supports healthy weight management</div>
+            <div class="ibl-item"><span>✦</span> Tooth-friendly — does not cause cavities</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 15 -->
+        <div class="ing-card" data-tags="antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">15</span>
+              <h3>Mix Berries</h3>
+              <p class="ing-latin">Blueberry, Strawberry, Raspberry Blend</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag antioxidant">Anti-Oxidant</span>
+            <span class="ing-tag">Cholesterol Control</span>
+          </div>
+          <p class="ing-body">Combining the synergistic power of blueberries, strawberries, and raspberries — three of the highest-ORAC score fruits on earth — this berry blend exerts powerful cardiovascular protection by reducing LDL cholesterol oxidation.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Highest combined ORAC antioxidant score</div>
+            <div class="ibl-item"><span>✦</span> Reduces LDL cholesterol oxidation</div>
+            <div class="ibl-item"><span>✦</span> Raises HDL (good) cholesterol</div>
+            <div class="ibl-item"><span>✦</span> Protects against arterial plaque buildup</div>
+            <div class="ibl-item"><span>✦</span> Supports memory and cognitive health</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 16 -->
+        <div class="ing-card" data-tags="joint sugar">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">16</span>
+              <h3>L-Arabinose</h3>
+              <p class="ing-latin">Plant-derived Pentose Sugar</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag joint">Joint Health Support</span>
+            <span class="ing-tag sugar">Sugar Control</span>
+          </div>
+          <p class="ing-body">A naturally occurring pentose sugar from plant cell walls, L-Arabinose specifically inhibits sucrase — the intestinal enzyme that breaks down sucrose into absorbable glucose. It reduces post-meal blood sugar spikes by up to 40%.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Inhibits sucrase enzyme (blocks sugar absorption)</div>
+            <div class="ibl-item"><span>✦</span> Reduces post-meal blood sugar spikes</div>
+            <div class="ibl-item"><span>✦</span> Reduces caloric absorption from sucrose ~40%</div>
+            <div class="ibl-item"><span>✦</span> Supports gut microbiome diversity</div>
+            <div class="ibl-item"><span>✦</span> Downstream benefits for joint inflammation</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 17 -->
+        <div class="ing-card" data-tags="antioxidant immunity">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">17</span>
+              <h3>Cerepron-F</h3>
+              <p class="ing-latin">Proprietary Cell Cleansing Complex</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Cell &amp; Organ Cleansing</span>
+          </div>
+          <p class="ing-body">A proprietary bioactive complex developed through French food biotechnology research, Cerepron-F is designed specifically to support cellular autophagy — the body's natural process of clearing damaged, dysfunctional, or aged cells.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Enhances cellular autophagy (self-cleaning)</div>
+            <div class="ibl-item"><span>✦</span> Removes intracellular debris and damaged components</div>
+            <div class="ibl-item"><span>✦</span> Supports liver and kidney detox functions</div>
+            <div class="ibl-item"><span>✦</span> Improves metabolic efficiency at cellular level</div>
+            <div class="ibl-item"><span>✦</span> Core longevity and anti-aging compound</div>
+          </div>
+        </div>
+
+        <!-- Ingredient 18 -->
+        <div class="ing-card" data-tags="immunity antiinflammatory antioxidant">
+          <div class="ing-card-header">
+            <div class="ing-emoji"></div>
+            <div class="ing-card-title-wrap">
+              <span class="ing-number">18</span>
+              <h3>Clove</h3>
+              <p class="ing-latin">Syzygium aromaticum</p>
+            </div>
+          </div>
+          <div class="ing-tags-row">
+            <span class="ing-tag immunity">Immune Booster</span>
+            <span class="ing-tag antiinflammatory">Anti-inflammatory</span>
+          </div>
+          <p class="ing-body">One of the most antioxidant-rich spices in existence, clove's primary compound eugenol is a potent phenolic with broad-spectrum antimicrobial, antiviral, antifungal, and anti-inflammatory properties across hundreds of scientific studies.</p>
+          <div class="ing-benefit-list">
+            <div class="ibl-item"><span>✦</span> Broad-spectrum antimicrobial and antiviral</div>
+            <div class="ibl-item"><span>✦</span> Natural COX-2 inhibitor (anti-inflammatory)</div>
+            <div class="ibl-item"><span>✦</span> Highest antioxidant ORAC among spices</div>
+            <div class="ibl-item"><span>✦</span> Supports liver enzyme normalisation</div>
+            <div class="ibl-item"><span>✦</span> Contributes to blood sugar stability</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <div class="disclaimer-bar">
+    <div class="container">
+      <p> <strong>Health Notice:</strong> Nutrika is a functional food supplement. This information is educational and does not constitute medical advice. Consult your healthcare provider before use if you have existing medical conditions or are on prescription medication.</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Life Nutrics SS Limited · Nyakuron Cultural Centre, Juba · <a href="mailto:info@lifenutricssslimited.com">info@lifenutricssslimited.com</a></p>
+      <p class="footer-global">Aligned with <a href="https://www.lifenutrics.com" target="_blank">Global Life Nutrics Sdn. Bhd.</a> · Malaysia</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.ing-card').forEach(card => {
+          if (filter === 'all' || (card.dataset.tags || '').includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Intersection Observer for reveal animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.ing-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

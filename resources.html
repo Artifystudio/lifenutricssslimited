@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources – Life Nutrics SS Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
+  <!-- Language System -->
+<script src="languages.js"></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1a213a;
+      --primary-light: #2a5a3b;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --gold-dark: #a8893a;
+      --cream: #fdf8f0;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #6b6b6b;
+      --shadow: 0 20px 60px rgba(0,0,0,0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+      background: rgba(26, 58, 43, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-brand a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    .brand-tag {
+      display: block;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.nav-active {
+      color: var(--gold);
+    }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .btn-nav {
+      background: var(--gold);
+      color: var(--primary) !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition);
+    }
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      padding: 140px 0 60px;
+      background: var(--primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(29, 77, 198, 0.06) 0%, transparent 90%);
+      pointer-events: none;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero .hero-eyebrow {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .page-hero .hero-accent {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-hero .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      max-width: 680px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
+    .page-hero .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .page-hero .hero-stat {
+      text-align: center;
+    }
+    .page-hero .stat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .page-hero .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== RESOURCES SECTION ===== */
+    .resources-section {
+      padding: 60px 0 80px;
+      background: var(--cream);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    .resource-category {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px 24px 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      transition: var(--transition);
+    }
+
+    .resource-category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+      border-color: rgba(201, 168, 76, 0.2);
+    }
+
+    .category-header {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .category-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .category-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .category-header p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .resource-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      background: var(--cream);
+      border-radius: 12px;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      gap: 12px;
+    }
+
+    .resource-item:hover {
+      background: rgba(201, 168, 76, 0.05);
+      border-color: rgba(201, 168, 76, 0.15);
+    }
+
+    .resource-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .resource-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .resource-info h4 {
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .resource-info p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .resource-meta {
+      font-size: 11px;
+      color: var(--gray);
+      opacity: 0.7;
+      display: block;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background: var(--gold);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
+    }
+
+    .download-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== QUICK ACCESS ===== */
+    .quick-access {
+      margin-top: 50px;
+      background: var(--primary);
+      border-radius: 20px;
+      padding: 28px 32px;
+    }
+
+    .quick-access-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .quick-label {
+      color: var(--gold-light);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .quick-link:hover {
+      background: var(--gold);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .ql-icon {
+      font-size: 16px;
+    }
+
+    /* ===== REQUEST SECTION ===== */
+    .request-section {
+      margin-top: 40px;
+      padding: 44px 40px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(26, 58, 43, 0.04));
+      border-radius: 20px;
+      border: 2px dashed rgba(201, 168, 76, 0.2);
+      text-align: center;
+    }
+
+    .request-content {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .request-icon {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .request-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .request-content p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .request-content .btn-primary {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .request-content .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4);
+    }
+
+    /* ===== DISCLAIMER ===== */
+    .disclaimer-bar {
+      background: var(--primary);
+      padding: 20px 0;
+    }
+    .disclaimer-bar p {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    .disclaimer-bar strong {
+      color: var(--gold-light);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--primary);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer a {
+      color: var(--gold-light);
+      transition: var(--transition);
+    }
+    .footer a:hover {
+      color: var(--gold);
+    }
+    .footer-global {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .resources-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .page-hero h1 {
+        font-size: 44px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        padding: 24px;
+        border-radius: 16px;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero h1 {
+        font-size: 36px;
+      }
+      .page-hero .hero-stats {
+        gap: 20px;
+      }
+      .page-hero .stat-num {
+        font-size: 24px;
+      }
+
+      .resource-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .download-btn {
+        align-self: flex-start;
+      }
+
+      .quick-access-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .quick-links {
+        width: 100%;
+      }
+
+      .quick-link {
+        flex: 1;
+        justify-content: center;
+        min-width: 120px;
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+
+      .request-section {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero h1 {
+        font-size: 28px;
+      }
+      .resource-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .section-title {
+        font-size: 30px;
+      }
+      .quick-link {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html">
+          <span class="brand-icon"></span>
+          <div>
+            <span class="brand-name">LIFE NUTRICS</span>
+            <span class="brand-tag">Elevating Lives</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+       <li><a href="#resources.html"class="nav-active">Resources</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="hero-eyebrow">Distributor Resources</p>
+      <h1>Download <span class="hero-accent">Documents</span></h1>
+      <p class="hero-sub">Access all the essential documents you need as a Life Nutrics distributor. From compensation plans to registration forms, everything is available for instant download.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Available Documents</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Document Categories</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">Instant Access</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES SECTION ===== -->
+  <section class="resources-section" id="resources">
+    <div class="container">
+
+      <div class="resources-grid">
+
+        <!-- Category 1: Compensation & Business -->
+        <div class="resource-category">
+          <div class="category-header">
+            <span class="category-icon">💰</span>
+            <h3>Compensation & Business</h3>
+            <p>Everything you need to understand your earning potential and business structure.</p>
+          </div>
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📄</span>
+                <div>
+                  <h4>Compensation Plan Overview</h4>
+                  <p>Complete breakdown of commission structures, bonuses, and incentives.</p>
+                  <span class="resource-meta">PDF • 2.4 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📊</span>
+                <div>
+                  <h4>Commission Structure Chart</h4>
+                  <p>Visual breakdown of commission percentages by rank and sales volume.</p>
+                  <span class="resource-meta">PDF • 1.8 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📈</span>
+                <div>
+                  <h4>Business Plan Template</h4>
+                  <p>Strategic planning document to help you build and grow your distribution network.</p>
+                  <span class="resource-meta">DOCX • 1.2 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📋</span>
+                <div>
+                  <h4>Success Path Checklist</h4>
+                  <p>Step-by-step guide to achieving rank advancement and maximizing earnings.</p>
+                  <span class="resource-meta">PDF • 0.8 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Registration & Legal -->
+        <div class="resource-category">
+          <div class="category-header">
+            <span class="category-icon">⚖️</span>
+            <h3>Registration & Legal</h3>
+            <p>Official documents for registration, compliance, and legal requirements.</p>
+          </div>
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📝</span>
+                <div>
+                  <h4>Distributor Registration Form</h4>
+                  <p>Official registration form to become a Life Nutrics distributor.</p>
+                  <span class="resource-meta">PDF • 1.1 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📜</span>
+                <div>
+                  <h4>Terms & Conditions</h4>
+                  <p>Complete terms and conditions for distributors and business partners.</p>
+                  <span class="resource-meta">PDF • 3.2 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">🏛️</span>
+                <div>
+                  <h4>Company Registration Documents</h4>
+                  <p>Official Life Nutrics SS Limited registration certificates and licenses.</p>
+                  <span class="resource-meta">PDF • 4.5 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">🔒</span>
+                <div>
+                  <h4>Privacy Policy & Data Protection</h4>
+                  <p>How we handle and protect your personal and business data.</p>
+                  <span class="resource-meta">PDF • 1.6 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Product & Training -->
+        <div class="resource-category">
+          <div class="category-header">
+            <span class="category-icon">📚</span>
+            <h3>Product & Training</h3>
+            <p>Product guides, training materials, and sales resources for your success.</p>
+          </div>
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📖</span>
+                <div>
+                  <h4>Product Catalogue</h4>
+                  <p>Complete product catalogue with ingredients, benefits, and usage guides.</p>
+                  <span class="resource-meta">PDF • 5.8 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">🎓</span>
+                <div>
+                  <h4>Distributor Training Manual</h4>
+                  <p>Comprehensive training guide covering product knowledge, sales, and recruitment.</p>
+                  <span class="resource-meta">PDF • 3.6 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">🎯</span>
+                <div>
+                  <h4>Sales Script & Pitch Deck</h4>
+                  <p>Proven sales scripts and presentation materials for distributor success.</p>
+                  <span class="resource-meta">PDF • 2.1 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+
+            <div class="resource-item">
+              <div class="resource-info">
+                <span class="resource-icon">📱</span>
+                <div>
+                  <h4>Social Media Content Pack</h4>
+                  <p>Ready-to-use social media posts, images, and marketing materials.</p>
+                  <span class="resource-meta">ZIP • 12.5 MB • Updated 2025</span>
+                </div>
+              </div>
+              <a href="#" class="download-btn" download>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== QUICK ACCESS ===== -->
+      <div class="quick-access">
+        <div class="quick-access-inner">
+          <span class="quick-label">📦 Quick Access</span>
+          <div class="quick-links">
+            <a href="#" class="quick-link">
+              <span class="ql-icon">📋</span>
+              Registration Form
+            </a>
+            <a href="#" class="quick-link">
+              <span class="ql-icon">📊</span>
+              Compensation Plan
+            </a>
+            <a href="#" class="quick-link">
+              <span class="ql-icon">📖</span>
+              Product Catalogue
+            </a>
+            <a href="#" class="quick-link">
+              <span class="ql-icon">🎓</span>
+              Training Manual
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== REQUEST SECTION ===== -->
+      <div class="request-section">
+        <div class="request-content">
+          <span class="request-icon">📨</span>
+          <h3>Can't find what you need?</h3>
+          <p>Contact our support team to request specific documents or get help with any questions you may have.</p>
+          <a href="mailto:distributors@lifenutricssslimited.com" class="btn-primary">Request Document</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <div class="disclaimer-bar">
+    <div class="container">
+      <p>⚕️ <strong>Disclaimer:</strong> All documents provided are for official use by Life Nutrics SS Limited distributors. Please ensure you have the latest version. Contact support for verification.</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Life Nutrics SS Limited · Nyakuron Cultural Centre, Juba · <a href="mailto:info@lifenutricssslimited.com">info@lifenutricssslimited.com</a></p>
+      <p class="footer-global">Aligned with <a href="https://www.lifenutrics.com" target="_blank">Global Life Nutrics Sdn. Bhd.</a> · Malaysia</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Nav scroll effect (keep subtle)
+    const navbar = document.getElementById('navbar');
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

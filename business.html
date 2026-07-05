@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Business Opportunity – Life Nutrics SS Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
+  <!-- Language System -->
+<script src="languages.js"></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #1a3a2b;
+      --primary-light: #2a5a3b;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --gold-dark: #a8893a;
+      --cream: #fdf8f0;
+      --white: #ffffff;
+      --dark: #1a1a1a;
+      --gray: #6b6b6b;
+      --shadow: 0 20px 60px rgba(0,0,0,0.1);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: var(--transition);
+      background: rgba(26, 58, 43, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-brand a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    .brand-tag {
+      display: block;
+      font-size: 9px;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a.nav-active {
+      color: var(--gold);
+    }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .btn-nav {
+      background: var(--gold);
+      color: var(--primary) !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: var(--transition);
+    }
+    .btn-nav:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      padding: 140px 0 60px;
+      background: var(--primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero .hero-eyebrow {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .page-hero .hero-accent {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-hero .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      max-width: 680px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
+    .page-hero .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .page-hero .hero-stat {
+      text-align: center;
+    }
+    .page-hero .stat-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .page-hero .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      padding: 80px 0;
+    }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .section-title.centered {
+      text-align: center;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .section-sub.centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== BUSINESS / COMPENSATION ===== */
+    .business-section {
+      background: var(--white);
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .comp-card {
+      background: var(--cream);
+      padding: 24px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      transition: var(--transition);
+      position: relative;
+      text-align: center;
+    }
+
+    .comp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+    }
+
+    .comp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .comp-card h4 {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .comp-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .comp-highlight {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== WHY SECTION ===== */
+    .why-section {
+      background: var(--cream);
+      padding: 40px 44px;
+      border-radius: 20px;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .why-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 20px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--dark);
+      padding: 8px 12px;
+      background: var(--white);
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .why-item:hover {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .why-item span {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .why-item:hover span {
+      color: var(--primary);
+    }
+
+    /* ===== PACKAGES SECTION ===== */
+    .packages-section {
+      background: var(--cream);
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .pkg-card {
+      background: var(--white);
+      padding: 32px 24px 28px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
+      position: relative;
+    }
+
+    .pkg-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+    }
+
+    .pkg-card.featured {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--primary);
+      padding: 4px 20px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .pkg-tier {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pkg-card.bronze .pkg-tier { color: #cd7f32; }
+    .pkg-card.silver .pkg-tier { color: #a8a8a8; }
+    .pkg-card.silver-plus .pkg-tier { color: #8a9ba8; }
+    .pkg-card.gold .pkg-tier { color: var(--gold); }
+
+    .pkg-boxes {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .pkg-pv {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+
+    .pkg-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .btn-pkg {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 50px;
+      background: var(--cream);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.06);
+      text-decoration: none;
+    }
+
+    .btn-pkg:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-pkg.btn-featured {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .btn-pkg.btn-featured:hover {
+      background: var(--gold-dark);
+      color: var(--white);
+    }
+
+    .pkg-note {
+      text-align: center;
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 30px;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 50px;
+      margin-top: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--cream);
+      border-radius: 16px;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow);
+    }
+
+    .ci-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      background: var(--gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .contact-item p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .contact-form {
+      background: var(--cream);
+      padding: 36px 32px;
+      border-radius: 20px;
+    }
+
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      transition: var(--transition);
+      outline: none;
+      margin-bottom: 16px;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--primary);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4);
+    }
+
+    .btn-primary.full-width {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--primary);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer p {
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer a {
+      color: var(--gold-light);
+      transition: var(--transition);
+    }
+    .footer a:hover {
+      color: var(--gold);
+    }
+    .footer-global {
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .comp-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .page-hero h1 {
+        font-size: 44px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        padding: 24px;
+        border-radius: 16px;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+
+      .comp-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .page-hero h1 {
+        font-size: 36px;
+      }
+      .page-hero .hero-stats {
+        gap: 20px;
+      }
+      .section-title {
+        font-size: 32px;
+      }
+      .why-section {
+        padding: 28px 20px;
+      }
+      .why-section h3 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .comp-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto 40px;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-hero h1 {
+        font-size: 28px;
+      }
+      .page-hero .stat-num {
+        font-size: 24px;
+      }
+      .contact-form {
+        padding: 24px 16px;
+      }
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html">
+          <span class="brand-icon">∞</span>
+          <div>
+            <span class="brand-name">LIFE NUTRICS</span>
+            <span class="brand-tag">Elevating Lives</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="business.html" class="nav-active">Business</a></li>
+        <li><a href="join.html" class="btn-nav">Join Now</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+     <p class="section-label" data-i18n="businessLabel">The Business Opportunity</p>
+    <h2 class="section-title" data-i18n="businessTitle">The Choice To <span class="hero-accent">Succeed</span></h1>
+      <p class="section-sub" data-i18n="businessDesc">Join a compensation plan built to reward action at every level — from your first referral to company profit sharing. Build your future with Life Nutrics.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Ways to Earn</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Membership Tiers</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Bonus Withdrawal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BUSINESS / COMPENSATION ===== -->
+  <section class="section business-section" id="business">
+    <div class="container">
+      <p class="section-label">Compensation Plan</p>
+      <h2 class="section-title centered">10 Ways <span class="hero-accent">to Earn</span></h2>
+      <p class="section-sub centered">Life Nutrics offers a hybrid compensation plan designed to reward you at every stage of your journey — from your first sale to building a global team.</p>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <span class="comp-num">01</span>
+          <h4>Retail Commission</h4>
+          <p>Buy at member price, sell at retail price.</p>
+          <span class="comp-highlight">33% Profit</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">02</span>
+          <h4>Kick-Start Bonus</h4>
+          <p>Get paid for referring another person to the business.</p>
+          <span class="comp-highlight">$12 · $24 · $144 · $264</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">03</span>
+          <h4>Upgrade Bonus</h4>
+          <p>Earn every time your referred member upgrades to a higher package.</p>
+          <span class="comp-highlight">$100 Payout</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">04</span>
+          <h4>Group Binary Bonus</h4>
+          <p>Get paid every time you make two corresponding LEFT &amp; RIGHT placements.</p>
+          <span class="comp-highlight">$100 Payout</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">05</span>
+          <h4>Partnership Bonus</h4>
+          <p>Earn from your team's binary income on one leg up to Level 5.</p>
+          <span class="comp-highlight">Every 6 Months</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">06</span>
+          <h4>Performance Bonus</h4>
+          <p>Gold Members accumulate PVs converted into CTO shares every 6 months.</p>
+          <span class="comp-highlight">1 Share = $1,800 USD</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">07</span>
+          <h4>Personal Bonus</h4>
+          <p>Enjoy bonus on every re-purchase made by you.</p>
+          <span class="comp-highlight">20% on Re-purchase</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">08</span>
+          <h4>Sales &amp; Purchase Bonus</h4>
+          <p>Total income from your team's monthly re-purchases, Level 1 to Level 10.</p>
+          <span class="comp-highlight">Paid Monthly</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">09</span>
+          <h4>Leadership Bonus</h4>
+          <p>Get paid every 3 months for being a rank achiever.</p>
+          <span class="comp-highlight">Every 3 Months</span>
+        </div>
+        <div class="comp-card">
+          <span class="comp-num">10</span>
+          <h4>Royalty Bonus</h4>
+          <p>Hit the last 4 ranks and earn monthly from the company's profit shares.</p>
+          <span class="comp-highlight">Monthly from Company</span>
+        </div>
+      </div>
+
+      <!-- Why Life Nutrics -->
+      <div class="why-section">
+        <h3>Why Life Nutrics? <span style="color: var(--gold);">✨</span></h3>
+        <div class="why-grid">
+          <div class="why-item"><span>✔</span> Good Leadership</div>
+          <div class="why-item"><span>✔</span> Earn from One-Side</div>
+          <div class="why-item"><span>✔</span> Earn from Crosslines via Royalty</div>
+          <div class="why-item"><span>✔</span> No Monthly Maintenance</div>
+          <div class="why-item"><span>✔</span> Brand New Global Opportunity</div>
+          <div class="why-item"><span>✔</span> Highly Effective Products</div>
+          <div class="why-item"><span>✔</span> Hybrid Pay Plan</div>
+          <div class="why-item"><span>✔</span> Reliable Withdraw System</div>
+          <div class="why-item"><span>✔</span> First to Pay 20% on Personal Repurchase</div>
+          <div class="why-item"><span>✔</span> First to Pay 7% Unilevel</div>
+          <div class="why-item"><span>✔</span> First to Pay Performance Bonus</div>
+          <div class="why-item"><span>✔</span> Rank Rewards Every 3 Months</div>
+          <div class="why-item"><span>✔</span> 100% Bonus Withdrawal to Members</div>
+          <div class="why-item"><span>✔</span> Cross-border &amp; International Deliveries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEMBERSHIP PACKAGES ===== -->
+  <section class="section packages-section" id="packages">
+    <div class="container">
+      <p class="section-label">Join Today</p>
+      <h2 class="section-title centered">Membership <span class="hero-accent">Packages</span></h2>
+      <p class="section-sub centered">Choose your entry point. Every package is a gateway to health, income, and community.</p>
+
+      <div class="packages-grid">
+        <div class="pkg-card bronze">
+          <div class="pkg-tier">Bronze</div>
+          <div class="pkg-boxes">1 Box</div>
+          <div class="pkg-pv">40 PV</div>
+          <p class="pkg-desc">Entry level. Start experiencing the benefits and earn your first commissions.</p>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+        <div class="pkg-card silver">
+          <div class="pkg-tier">Silver</div>
+          <div class="pkg-boxes">2 Boxes</div>
+          <div class="pkg-pv">80 PV</div>
+          <p class="pkg-desc">Expand your reach and grow your network with more product to share.</p>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+        <div class="pkg-card silver-plus featured">
+          <div class="pkg-badge">⭐ Most Popular</div>
+          <div class="pkg-tier">Silver Plus</div>
+          <div class="pkg-boxes">12 Boxes</div>
+          <div class="pkg-pv">480 PV</div>
+          <p class="pkg-desc">Unlock higher bonuses and build a serious team with this power package.</p>
+          <a href="#contact" class="btn-pkg btn-featured">Get Started</a>
+        </div>
+        <div class="pkg-card gold">
+          <div class="pkg-tier">Gold</div>
+          <div class="pkg-boxes">22 Boxes</div>
+          <div class="pkg-pv">880 PV</div>
+          <p class="pkg-desc">Maximum earnings. Unlock performance bonus, CTO shares, and royalty income.</p>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+      </div>
+
+      <p class="pkg-note">📞 Contact our country office for current package values in US Dollars.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title centered">Ready to <span class="hero-accent">Elevate</span> Your Life?</h2>
+      <p class="section-sub centered">For membership, distributor registration, product purchase, or any enquiry — our team is ready to welcome you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <strong>Main Office</strong>
+              <p>Nyakuron Cultural Centre<br/>Juba, South Sudan</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <p>+211 920 092 029<br/>+211 922 209 999<br/>+211 911 109 999</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <p>info@lifenutricssslimited.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <strong>Website</strong>
+              <p>www.lifenutricssslimited.com</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <h3>Send a Message</h3>
+          <div class="form-row">
+            <input type="text" placeholder="Your Full Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <input type="email" placeholder="Email Address" />
+          <select>
+            <option value="">I'm interested in...</option>
+            <option>Becoming a Member</option>
+            <option>Buying Nutrika</option>
+            <option>Buying Nu3Coffee</option>
+            <option>Becoming a Distributor</option>
+            <option>General Enquiry</option>
+          </select>
+          <textarea placeholder="Your message or questions..." rows="4"></textarea>
+          <button type="submit" class="btn-primary full-width">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Life Nutrics SS Limited · Nyakuron Cultural Centre, Juba · <a href="mailto:info@lifenutricssslimited.com">info@lifenutricssslimited.com</a></p>
+      <p class="footer-global">Aligned with <a href="https://www.lifenutrics.com" target="_blank">Global Life Nutrics Sdn. Bhd.</a> · Malaysia</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Form handler
+    function handleForm(e) {
+      e.preventDefault();
+      alert('Thank you for your message! Our team will contact you within 24 hours.');
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>

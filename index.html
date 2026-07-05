@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Nutrics SS Limited – Elevating Lives</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
+  <!-- Language System -->
+<script src="languages.js"></script>
+</head>
+<body>
+
+  <nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html">
+        <span class="brand-icon">∞</span>
+        <div>
+          <span class="brand-name">LIFE NUTRICS</span>
+          <span class="brand-tag">Elevating Lives</span>
+        </div>
+      </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-active" data-i18n="navHome">Home</a></li>
+      <li><a href="products.html" data-i18n="navProducts">Products</a></li>
+      <li><a href="business.html" data-i18n="navBusiness">Business</a></li>
+      <li><a href="resources.html" data-i18n="navResources">Resources</a></li>
+      <li><a href="join.html" class="btn-nav" data-i18n="navJoin">Join Now</a></li>
+    </ul>
+    
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button class="lang-toggle" id="langToggle" type="button">
+        <span class="lang-flag">🌍</span>
+        <span class="lang-current" id="currentLang">English</span>
+        <svg class="lang-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <ul class="lang-dropdown" id="langDropdown">
+        <li>
+          <button class="lang-option active" data-lang="en" type="button">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-name">English</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-option" data-lang="sw" type="button">
+            <span class="lang-flag">🇹🇿</span>
+            <span class="lang-name">Kiswahili</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-option" data-lang="ar" type="button">
+            <span class="lang-flag">🇸🇦</span>
+            <span class="lang-name">العربية</span>
+          </button>
+        </li>
+        <li>
+          <button class="lang-option" data-lang="fr" type="button">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-name">Français</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+ <!-- HERO -->
+<section class="hero" id="home">
+  <!-- Hero Content -->
+<div class="hero-container">
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-i18n="heroEyebrow">Life Nutrics South Sudan International Hub</p>
+      <h1 class="hero-title">
+        <span data-i18n="heroTitle">Elevating</span><br/>
+        <span class="hero-accent" data-i18n="heroTitleAccent">Lives</span>
+      </h1>
+      <p class="hero-sub" data-i18n="heroSub">Health · Wealth · Lifestyle</p>
+      <p class="hero-desc" data-i18n="heroDesc">A premier wellness enterprise rooted in natural functional foods, dedicated to transforming communities across South Sudan and beyond.</p>
+      <div class="hero-cta-row">
+        <a href="#products" class="btn-primary" data-i18n="heroBtnProducts">Explore Products</a>
+        <a href="#business" class="btn-outline" data-i18n="heroBtnBusiness">Business Opportunity</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="image/hero.png" alt="Life Nutrics Wellness Products" />
+    </div>
+  </div>
+  <div class="hero-badge-wrap">
+    <div class="hero-badge">
+      <span class="badge-num">18</span>
+      <span class="badge-label">Active Ingredients</span>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-num">200+</span>
+      <span class="badge-label">Ailments Addressed</span>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-num">2025</span>
+      <span class="badge-label">Established in Juba</span>
+    </div>
+  </div>
+</section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-label">Who We Are</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Building a Healthier<br/>South Sudan</h2>
+          <p>Life Nutrics SS Limited is a fully registered company in the Republic of South Sudan, incorporated on 3rd September 2025. Our head office is located at the Nyakuron Cultural Centre, Juba City.</p>
+          <p>We are aligned with the mission and vision of Global Life Nutrics Sdn. Bhd. in Malaysia and Life Nutrics Africa — committed to promoting health, wealth creation, and improved lifestyles for all.</p>
+          <div class="about-pillars">
+            <div class="pillar">
+              <div class="pillar-icon"></div>
+              <div>
+                <strong>Health &amp; Nutrition</strong>
+                <p>Natural functional foods and holistic wellness solutions enhancing health and quality of life.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon"></div>
+              <div>
+                <strong>Economic Empowerment</strong>
+                <p>Sustainable income opportunities that uplift individuals, families, and communities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-mission-vision">
+          <div class="mv-card mission-card">
+            <div class="mv-tag">MISSION</div>
+            <p>To develop a unique value proposition that enables members to achieve their daily targets through creating valuable relationships that build a strong network.</p>
+          </div>
+          <div class="mv-card vision-card">
+            <div class="mv-tag">VISION</div>
+            <p>To produce a rare breed of leaders driving business growth built on a foundation of longevity, integrity and pride to create a long-lasting impact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP SECTION ===== -->
+<section class="section leadership-section" id="leadership">
+  <div class="container">
+    <p class="section-label">Country Leadership</p>
+    <h2 class="section-title" style="margin-bottom: 40px;">Meet Our <span class="hero-accent">Leader</span></h2>
+
+    <div class="leader-card">
+      <!-- Image on Left -->
+      <div class="leader-image">
+        <img src="image/ceo.jpeg" alt="Mr. Joseph Kenyi - Country Manager" />
+        <div class="leader-image-badge">
+          <span class="badge-icon"></span>
+          <span class="badge-text">Country Manager</span>
+        </div>
+      </div>
+
+      <!-- Content on Right -->
+      <div class="leader-content">
+        <div class="leader-name-block">
+          <h2>Mr. Joseph Kenyi</h2>
+          <p class="leader-title">Country Manager &amp; Business &amp; Health Consultant</p>
+        </div>
+
+        <blockquote class="leader-quote">
+          "Building bridges to enhance quality of life, health, wealth, and lifestyle."
+        </blockquote>
+
+        <div class="leader-highlights">
+          <div class="lh-item">
+            <span class="lh-number">30+</span>
+            <div>
+              <strong>Years Experience</strong>
+              <p>Entrepreneurship and income-generating projects</p>
+            </div>
+          </div>
+          <div class="lh-item">
+            <span class="lh-number">2025</span>
+            <div>
+              <strong>MLM Industry</strong>
+              <p>Joined in August 2025</p>
+            </div>
+          </div>
+          <div class="lh-item">
+            <span class="lh-number">🏛️</span>
+            <div>
+              <strong>Founder</strong>
+              <p>Initiator of Life Nutrics South Sudan Limited</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-values">
+          <div class="lv-item">
+            <span class="lv-icon"></span>
+            <div>
+              <strong>Leadership</strong>
+              <p>Empowering people to lead and succeed</p>
+            </div>
+          </div>
+          <div class="lv-item">
+            <span class="lv-icon"></span>
+            <div>
+              <strong>Health</strong>
+              <p>Promoting wellness for a better life</p>
+            </div>
+          </div>
+          <div class="lv-item">
+            <span class="lv-icon"></span>
+            <div>
+              <strong>Wealth</strong>
+              <p>Creating opportunities for financial freedom</p>
+            </div>
+          </div>
+          <div class="lv-item">
+            <span class="lv-icon"></span>
+            <div>
+              <strong>Impact</strong>
+              <p>Building stronger communities together</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leader-cta">
+          <a href="#contact" class="btn-primary">Connect with Joseph</a>
+          <span class="leader-connect">📞 +211  922 209 999</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- PRODUCTS -->
+  <section class="section products-section" id="products">
+    <div class="container">
+      <div class="section-label">Our Products</div>
+      <h2 class="section-title centered">Function Meets Flavor</h2>
+      <p class="section-sub">Two powerful wellness products designed to transform how you feel, from the inside out.</p>
+
+      <div class="products-grid">
+
+        <!-- Nutrika -->
+        <div class="product-card nutrika-card">
+          <div class="product-ribbon">Broad Spectrum</div>
+          <div class="product-logo-name">Nutrika</div>
+          <p class="product-tagline">Premium functional food formulated with <strong>18 expertly selected active ingredients</strong> using advanced food technologies from France and Japan.</p>
+          <div class="product-how">
+            <h4>How It Works In Your Body</h4>
+            <ul>
+              <li><span class="check">✦</span> Rejuvenating aged cells</li>
+              <li><span class="check">✦</span> Repairing damaged cells</li>
+              <li><span class="check">✦</span> Replicating good cells</li>
+              <li><span class="check">✦</span> Restoring sick cells</li>
+              <li><span class="check">✦</span> Cleansing blood</li>
+              <li><span class="check">✦</span> Boosting immunity</li>
+              <li><span class="check">✦</span> Ensuring optimum body functionality</li>
+            </ul>
+          </div>
+          <a href="#ingredients" class="btn-card">See All Ingredients</a>
+        </div>
+
+        <!-- Nu3Coffee -->
+        <div class="product-card coffee-card">
+          <div class="product-ribbon coffee-ribbon">For Male &amp; Female Health</div>
+          <div class="product-logo-name coffee-name">Nu3Coffee</div>
+          <p class="product-tagline">A functional coffee designed not just for energy — but for immunity, metabolic balance, brain support, and overall wellness.</p>
+          <div class="product-how">
+            <h4>Key Benefits</h4>
+            <ul>
+              <li><span class="check coffee-check">✦</span> Boost energy naturally</li>
+              <li><span class="check coffee-check">✦</span> Regulate female hormones</li>
+              <li><span class="check coffee-check">✦</span> Improve cardiovascular health</li>
+              <li><span class="check coffee-check">✦</span> Increase lung immunity</li>
+              <li><span class="check coffee-check">✦</span> Promote healthy respiratory system</li>
+              <li><span class="check coffee-check">✦</span> Support general body immunity &amp; digestion</li>
+              <li><span class="check coffee-check">✦</span> Protect from chronic stress</li>
+            </ul>
+          </div>
+          <div class="coffee-inside">
+            <h4>What's Inside</h4>
+            <div class="inside-tags">
+              <span>Black Seed</span>
+              <span>Pomegranate</span>
+              <span>Tiger Milk Mushroom</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AILMENTS BANNER -->
+  <section class="ailments-banner">
+    <div class="container">
+      <h3>Nutrika Addresses <span class="gold-text">200+ Chronic Ailments</span></h3>
+      <div class="ailments-marquee-wrap">
+        <div class="ailments-marquee">
+          <span>Cardiovascular Disease</span> <span class="sep">·</span>
+          <span>Diabetes (1&amp;2)</span> <span class="sep">·</span>
+          <span>Hypertension</span> <span class="sep">·</span>
+          <span>Stroke / Arthritis</span> <span class="sep">·</span>
+          <span>Cancer</span> <span class="sep">·</span>
+          <span>Kidney Problems</span> <span class="sep">·</span>
+          <span>Liver Problems</span> <span class="sep">·</span>
+          <span>Skin Problems</span> <span class="sep">·</span>
+          <span>Sickle Cell Anemia</span> <span class="sep">·</span>
+          <span>Fibroids</span> <span class="sep">·</span>
+          <span>Male &amp; Female Fertility</span> <span class="sep">·</span>
+          <span>Insomnia</span> <span class="sep">·</span>
+          <span>Mental &amp; Brain Health</span> <span class="sep">·</span>
+          <span>Asthma</span> <span class="sep">·</span>
+          <span>Prostate Health</span> <span class="sep">·</span>
+          <span>Memory Loss</span> <span class="sep">·</span>
+          <span>Eye Problems</span> <span class="sep">·</span>
+          <span>Cardiovascular Disease</span> <span class="sep">·</span>
+          <span>Diabetes (1&amp;2)</span> <span class="sep">·</span>
+          <span>Hypertension</span> <span class="sep">·</span>
+          <span>Stroke / Arthritis</span> <span class="sep">·</span>
+          <span>Cancer</span> <span class="sep">·</span>
+          <span>Kidney Problems</span> <span class="sep">·</span>
+          <span>Liver Problems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title centered">Ready to Elevate Your Life?</h2>
+      <p class="section-sub">For membership, distributor registration, product purchase, or any enquiry — our team is ready to welcome you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="ci-icon"></div>
+            <div>
+              <strong>Main Office</strong>
+              <p>Nyakuron Cultural Centre<br/>Juba, South Sudan</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"></div>
+            <div>
+              <strong>Phone</strong>
+              <p>+211 920 092 029<br/>+211 922 209 999<br/>+211 911 109 999</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"></div>
+            <div>
+              <strong>Email</strong>
+              <p>info@lifenutricssslimited.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon"></div>
+            <div>
+              <strong>Website</strong>
+              <p>www.lifenutricssslimited.com</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <h3>Send a Message</h3>
+          <div class="form-row">
+            <input type="text" placeholder="Your Full Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <input type="email" placeholder="Email Address" />
+          <select>
+            <option value="">I'm interested in...</option>
+            <option>Becoming a Member</option>
+            <option>Buying Nutrika</option>
+            <option>Buying Nu3Coffee</option>
+            <option>Becoming a Distributor</option>
+            <option>General Enquiry</option>
+          </select>
+          <textarea placeholder="Your message or questions..." rows="4"></textarea>
+          <button type="submit" class="btn-primary full-width">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-icon footer-brand-icon">∞</span>
+          <div>
+            <span class="footer-brand-name">LIFE NUTRICS</span>
+            <span class="footer-brand-tag">Elevating Lives · South Sudan</span>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <strong>Company</strong>
+          <a href="#about">About Us</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links-col">
+          <strong>Products</strong>
+          <a href="#products">Nutrika</a>
+          <a href="#products">Nu3Coffee</a>
+          <a href="#ingredients">Ingredients</a>
+        </div>
+        <div class="footer-links-col">
+          <strong>Business</strong>
+          <a href="#business">Compensation Plan</a>
+          <a href="#packages">Membership Packages</a>
+          <a href="#contact">Join Now</a>
+        </div>
+      </div>
+      <footer class="footer">
+  <div class="container">
+    <p>© 2025 Life Nutrics SS Limited · <span data-i18n="footerText">Nyakuron Cultural Centre, Juba</span> · <a href="mailto:info@lifenutricssslimited.com">info@lifenutricssslimited.com</a></p>
+    <p class="footer-global" data-i18n="footerGlobal">Aligned with Global Life Nutrics Sdn. Bhd. · Malaysia</p>
+  </div>
+</footer>
+
+  <script>
+    // Sticky nav
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          navLinks.classList.remove('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.product-card, .comp-card, .pkg-card, .ingredient-card, .pillar, .mv-card').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // Form handler
+    function handleForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✔ Message Sent!';
+      btn.style.background = '#2d8c4e';
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
